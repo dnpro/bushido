@@ -8,26 +8,22 @@ global $bsdfw;
 
 <div id="portfolio" data-role="page">
     <div class="row">
-        <div class="block-grid bg-s1 bg-m2 bg-l4 collapsed">
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/lovita2_0001_Layer-Comp-2-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/lovita2_0000_Layer-Comp-1-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/prisma_site-960x960.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/lovita2_0002_Layer-Comp-3-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/1300_1-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/lovita2_0003_Layer-Comp-4-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/paleta-960x960.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/illegal_6-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/1300_0008_Layer-Comp-9-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/lovita2_0004_Layer-Comp-5-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/lovita2_0005_Layer-Comp-6-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/villa2_0006_Layer-Comp-7-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/illegal_8-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/yolo6-960x960.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/illegal_7-1024x1024.jpg' ?>"></div>
-            <div class="tile"><img class="responsive-img" src="<?php echo get_template_directory_uri() .'/img/villa2_0008_Layer-Comp-91-1024x1024.jpg' ?>"></div>
+        <div class="block-grid bg-s1 bg-m2 bg-l3">
+			<?php
+                switch($bsdfw['opt-projects-display']) {
+                    case '1' : get_template_part('inc/portfolio/default-portfolio'); break;
+                    case '2' : get_template_part('inc/portfolio/push-down-portfolio'); break;
+                    case '3' : get_template_part('inc/portfolio/slide-in-portfolio'); break;
+                    case '4' : get_template_part('inc/portfolio/lightbox-portfolio'); break;
+                    case '5' : get_template_part('inc/portfolio/single-page-portfolio'); break;
+                    default  : get_template_part('inc/portfolio/default-portfolio'); break;
+                }
+			?>
         </div>
     </div>
+    <div id="works-pagination" class="row" max-num-pages="<?php echo $wp_query->max_num_pages; ?>">
+       <?php next_posts_link(); ?>
+    </div>
 </div>
-
 
 <?php get_footer(); ?>

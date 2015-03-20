@@ -1,26 +1,28 @@
-(function ($) {
+(function ($, window, document) {
 
-     $document = $(document),
+    // The $ is now locally scoped 
+    $(function () {
+
+        // DOM ready!
+        //Variables
+        $document = $(document),
             $window = $(window),
             $body = $("body"),
-            $card = $(".card")
-            $thumb = $card.find(".card-thumb"),
-            $overlay = $card.find(".card-overlay"),
-            $info = $card.find(".card-info"),
-            overlay = false,
-            animating = false;
-    
-    $(".menutoggle").on("click", function () {
-        var $tline = $(this).find(".top-line"),
-            $cline = $(this).find(".center-line"),
-            $bline = $(this).find(".bottom-line"),
-            $line = $(this).find(".line");
-        $line.toggleClass("open");
-    })
+            $content = $("#content"),
+            $worksPagination = $("#works-pagination");
 
-    $(".sidemenu").find("a").ripple({
-        touchElevation: "off",
-        restElevation: "z0",
+
+
+        // Initial setup
+        
+
+        // Event delegation
+
+
     });
+
+
+    // Functions
     
-}(jQuery));
+
+}(window.jQuery, window, document)); // Fully reference jQuery after this point.

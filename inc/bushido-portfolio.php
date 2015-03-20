@@ -1,8 +1,8 @@
 <?php
 /*
-A portfolio post type for Wearska
+A portfolio post type for Bushido
 Version: 0.3
-79thor: Ionut Achim
+Author: Ionut Achim
 Author URI: http://wearska.com
 */
 
@@ -10,16 +10,16 @@ Author URI: http://wearska.com
 // Create the Portfolio post type
 // **********************************
    
-function wearska_portfolio_register() {
+function bushido_portfolio_register() {
     $labels = array(
-		'name' => __( 'Portfolio', 'wearska' ),
-		'singular_name' => __( 'Portfolio Item', 'wearska' ),
-		'add_new' => __( 'Add New', 'wearska' ),
-		'edit_item' => __( 'Edit Item', 'wearska' ),
-		'view_item' => __( 'View Item', 'wearska' ),
-		'search_items' => __( 'Search Portfolio', 'wearska' ),
-		'not_found' => __( 'No portfolio items found', 'wearska' ),
-		'not_found_in_trash' => __( 'No portfolio items found in trash', 'wearska' )
+		'name' => __( 'Portfolio', 'bushido' ),
+		'singular_name' => __( 'Portfolio Item', 'bushido' ),
+		'add_new' => __( 'Add New', 'bushido' ),
+		'edit_item' => __( 'Edit Item', 'bushido' ),
+		'view_item' => __( 'View Item', 'bushido' ),
+		'search_items' => __( 'Search Portfolio', 'bushido' ),
+		'not_found' => __( 'No portfolio items found', 'bushido' ),
+		'not_found_in_trash' => __( 'No portfolio items found in trash', 'bushido' )
 	);
 	
     $args = array(  
@@ -36,32 +36,32 @@ function wearska_portfolio_register() {
 }
 
 
-add_action('init', 'wearska_portfolio_register');  
+add_action('init', 'bushido_portfolio_register');  
 
 // *************************************
 // Taxonomy
 // *************************************
 
 
-function wearska_custom_taxonomy() {
+function bushido_custom_taxonomy() {
     register_taxonomy(
         'project_type', 'portfolio',  
 	array(  
 	    'hierarchical' => true,  
 	    'labels' => array(
-	    	'name' => __( 'Categories', 'wearska' ),
-	    	'singular_name' => __( 'Portfolio Category', 'wearska' ),
-	    	'search_items' => __( 'Search Portfolio Categories', 'wearska' ),
-	    	'popular_items' => __( 'Popular Portfolio Categories', 'wearska' ),
-	    	'all_items' => __( 'All Portfolio Categories', 'wearska' ),
-	    	'edit_item' => __( 'Edit Portfolio Category', 'wearska' ),
-	    	'update_item' => __( 'Update Portfolio Category', 'wearska' ),
-	    	'add_new_item' => __( 'Add New Portfolio Category', 'wearska' ),
-	    	'new_item_name' => __( 'New Portfolio Category Name', 'wearska' ),
-	    	'separate_items_with_commas' => __( 'Separate Portfolio Categories With Commas', 'wearska' ),
-	    	'add_or_remove_items' => __( 'Add or Remove Portfolio Categories', 'wearska' ),
-	    	'choose_from_most_used' => __( 'Choose From Most Used Portfolio Categories', 'wearska' ),  
-	    	'parent' => __( 'Parent Portfolio Category', 'wearska' )      	
+	    	'name' => __( 'Categories', 'bushido' ),
+	    	'singular_name' => __( 'Portfolio Category', 'bushido' ),
+	    	'search_items' => __( 'Search Portfolio Categories', 'bushido' ),
+	    	'popular_items' => __( 'Popular Portfolio Categories', 'bushido' ),
+	    	'all_items' => __( 'All Portfolio Categories', 'bushido' ),
+	    	'edit_item' => __( 'Edit Portfolio Category', 'bushido' ),
+	    	'update_item' => __( 'Update Portfolio Category', 'bushido' ),
+	    	'add_new_item' => __( 'Add New Portfolio Category', 'bushido' ),
+	    	'new_item_name' => __( 'New Portfolio Category Name', 'bushido' ),
+	    	'separate_items_with_commas' => __( 'Separate Portfolio Categories With Commas', 'bushido' ),
+	    	'add_or_remove_items' => __( 'Add or Remove Portfolio Categories', 'bushido' ),
+	    	'choose_from_most_used' => __( 'Choose From Most Used Portfolio Categories', 'bushido' ),  
+	    	'parent' => __( 'Parent Portfolio Category', 'bushido' )      	
 	    	),
 	    'query_var' => true,  
 	    'rewrite' => true  
@@ -69,7 +69,7 @@ function wearska_custom_taxonomy() {
     );
 }
 
-add_action('init', 'wearska_custom_taxonomy');
+add_action('init', 'bushido_custom_taxonomy');
 
 // *************************************
 // Customize Admin Portfolio Columns
@@ -78,10 +78,10 @@ add_action('init', 'wearska_custom_taxonomy');
 function manage_portfolio_columns( $portfolio_columns ) {
 	$portfolio_columns = array(
 		"cb" => "<input type=\"checkbox\" />",
-		"title" => __('Title' ,'wearska'),
-		"thumbnail" => __('Thumbnail', 'wearska'),
-		"author" => __('Author', 'wearska'),
-		"date" => __('Date', 'wearska'),
+		"title" => __('Title' ,'bushido'),
+		"thumbnail" => __('Thumbnail', 'bushido'),
+		"author" => __('Author', 'bushido'),
+		"date" => __('Date', 'bushido'),
 	);
 	return $portfolio_columns;
 }
@@ -103,7 +103,7 @@ function display_portfolio_column( $portfolio_columns, $post_id ) {
 			if ( isset( $thumb ) ) {
 				echo $thumb;
 			} else {
-				echo __('None', 'wearska');
+				echo __('None', 'bushido');
 			}
 			break;	
 		case "project_type":
@@ -111,7 +111,7 @@ function display_portfolio_column( $portfolio_columns, $post_id ) {
 		if ( $category_list = get_the_term_list( $post_id, 'project_type', '', ', ', '' ) ) {
 			echo $category_list;
 		} else {
-			echo __('None', 'wearska');
+			echo __('None', 'bushido');
 		}
 		break;			
 	}
@@ -146,7 +146,7 @@ function portfolio_thumbnail_url($pid){
     return  $image_url[0];  
 }
 
-function wearska_portfolio_get_preview_image($post_id, $size = 'full'){
+function bushido_portfolio_get_preview_image($post_id, $size = 'full'){
 	if( $post_id !== 0){
 		$thumb_src = wp_get_attachment_image_src( get_post_thumbnail_id($post_id), $size );
 		if(isset($thumb_src[0])){
@@ -156,10 +156,10 @@ function wearska_portfolio_get_preview_image($post_id, $size = 'full'){
 	return "";
 }
 
-function wearska_portfolio_get_description($custom_meta){
+function bushido_portfolio_get_description($custom_meta){
 	// Post Description
-	if(isset($custom_meta['wearska_portfolio_intro_text'])){
-		$work_description = $custom_meta['wearska_portfolio_intro_text'][0];	
+	if(isset($custom_meta['bushido_portfolio_intro_text'])){
+		$work_description = $custom_meta['bushido_portfolio_intro_text'][0];	
 	}else{
 		// TODO: exctract from the posts content
 		$work_description = "";
@@ -172,7 +172,7 @@ function wearska_portfolio_get_description($custom_meta){
 
 // Gets the ID of an attachment given its URL.
 
-function wearska_get_attachment_id( $guid ) {
+function bushido_get_attachment_id( $guid ) {
   global $wpdb;
 
   /* nothing to find return false */

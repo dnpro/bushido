@@ -333,7 +333,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
                         'type'      => 'editor',
                         'title'     => __('Footer Text', 'redux-framework-bsd'),
                         'subtitle'  => __('You can use the following shortcodes in your footer text: [wp-url] [site-url] [theme-url] [login-url] [logout-url] [site-title] [site-tagline] [current-year]', 'redux-framework-bsd'),
-                        'default'   => 'Designed with <span><i class="fa fa-heart"></i></span> by Wearska!',
+                        'default'   => 'Designed with <span><i class="fa fa-heart"></i></span> by Bushido!',
                     )
                 )
             );
@@ -490,7 +490,7 @@ if (!class_exists('admin_folder_Redux_Framework_config')) {
 
             $this->args = array(
                 'opt_name' => 'bsdfw',
-                'display_name' => 'Wearska',
+                'display_name' => 'Bushido',
                 'page_slug' => 'bsd_options',
                 'page_title' => 'Theme Options',
                 'dev_mode' => '1',

@@ -83,7 +83,7 @@ wp_enqueue_script( 'push-down-grid-ajax-js', get_template_directory_uri() . '/in
 	<?php endwhile; ?>
 </div>
 <div id="bsdpf-pagination">
-	<?php posts_nav_link('','',__('Load More Posts', 'wearska')); ?>
+	<?php posts_nav_link('','',__('Load More Posts', 'bushido')); ?>
 </div>
 	
 <?php wp_reset_postdata(); ?>

@@ -165,8 +165,22 @@ add_action( 'widgets_init', 'bushido_widgets_init' );
  */
 function bushido_scripts() {
 	wp_enqueue_style( 'bushido-style', get_stylesheet_uri() );
+    
+    wp_deregister_script('jquery');
 
-	wp_enqueue_script( 'bushido-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_register_script('jquery', ("http://code.jquery.com/jquery-latest.min.js"), false);
+
+	wp_enqueue_script('jquery');
+
+	wp_enqueue_script( 'bushido-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '', true );
+    
+	wp_enqueue_script( 'bushido-infinite-pagination', get_template_directory_uri() . '/js/infinite-pagination.js', array(), '', true );
+    
+	wp_enqueue_script( 'bushido-color-thief', get_template_directory_uri() . '/js/vendor/color-thief.js', array(), '', true );
+    
+	wp_enqueue_script( 'bushido-work-cards', get_template_directory_uri() . '/js/components/work-cards.js', array(), '', true );
+    
+	wp_enqueue_script( 'bushido-main', get_template_directory_uri() . '/js/main.js', array(), '', true );
 
 	wp_enqueue_script( 'bushido-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -216,3 +230,39 @@ include_once get_template_directory() . '/inc/options-init.php';
  * Load Portfolio.
  */
 require get_template_directory() . '/inc/bushido-portfolio.php';
+
+
+
+
+ 
+  
+/* Pagination Function*/   
+function bushido_pagination($pages = '', $range = 4) {
+	$showitems = ($range * 2)+1;
+	
+	global $paged;
+	if(empty($paged)) $paged = 1;
+	
+	if($pages == '') {
+		global $wp_query;
+		$pages = $wp_query->max_num_pages;
+		if(!$pages) {
+			$pages = 1;
+		}
+	}
+	
+
+		echo "<span class='allpages'>" . __('Page', 'bushido') . " ".$paged." " . __('of', 'bushido') . " ".$pages."</span>";
+		if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; " . __('First', 'bushido') . "</a>";
+		if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo; " . __('Previous', 'bushido') . "</a>";
+		
+		for ($i=1; $i <= $pages; $i++) {
+			if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems )) {
+				echo ($paged == $i)? "<span class=\"current\">".$i."</span>":"<a href='".get_pagenum_link($i)."' class=\"next-page\">".$i."</a>";
+			}
+		}
+	
+		if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">" . __('Next', 'bushido') . " &rsaquo;</a>";
+		if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>" . __('Last', 'bushido') . " &raquo;</a>";
+	
+}

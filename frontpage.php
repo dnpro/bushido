@@ -2,7 +2,7 @@
 /**
  * Template name: Frontpage
  *
- * @package wearska
+ * @package bushido
  */
 
 get_header(); ?>

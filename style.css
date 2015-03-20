@@ -2004,7 +2004,7 @@ ul {
     z-index: 100000;
     /* Above WP toolbar. */ }
 
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, ul.side-nav {
+.z-depth-1, nav, .card-panel, .card, .work-card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, ul.side-nav {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn-floating:hover {
@@ -2494,8 +2494,8 @@ span.badge {
 
 @font-face {
   font-family: "Material-Design-Icons";
-  src: url("../font/material-design-icons/Material-Design-Icons.eot");
-  src: url("../font/material-design-icons/Material-Design-Icons.eot?#iefix") format("embedded-opentype"), url("../font/material-design-icons/Material-Design-Icons.woff") format("woff"), url("../font/material-design-icons/Material-Design-Icons.ttf") format("truetype"), url("../font/material-design-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
+  src: url("font/material-design-icons/Material-Design-Icons.eot");
+  src: url("font/material-design-icons/Material-Design-Icons.eot?#iefix") format("embedded-opentype"), url("font/material-design-icons/Material-Design-Icons.woff") format("woff"), url("font/material-design-icons/Material-Design-Icons.ttf") format("truetype"), url("font/material-design-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -5067,27 +5067,27 @@ nav {
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Thin.ttf");
+  src: url("font/roboto/Roboto-Thin.ttf");
   font-weight: 200; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Light.ttf");
+  src: url("font/roboto/Roboto-Light.ttf");
   font-weight: 300; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Regular.ttf");
+  src: url("font/roboto/Roboto-Regular.ttf");
   font-weight: 400; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Medium.ttf");
+  src: url("font/roboto/Roboto-Medium.ttf");
   font-weight: 500; }
 
 @font-face {
   font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Bold.ttf");
+  src: url("font/roboto/Roboto-Bold.ttf");
   font-weight: 700; }
 
 a {
@@ -5292,7 +5292,7 @@ small {
   background-clip: padding-box;
   background-color: #fff; }
 
-.card {
+.card, .work-card {
   position: relative;
   overflow: hidden;
   margin: 0.5rem 0 1rem 0;
@@ -5300,52 +5300,52 @@ small {
   box-sizing: border-box;
   border-radius: 2px;
   background-clip: padding-box; }
-  .card .card-title {
+  .card .card-title, .work-card .card-title, .work-card .work-card-title {
     color: #fff;
     font-size: 24px;
     font-weight: 300; }
-    .card .card-title.activator {
+    .card .card-title.activator, .work-card .card-title.activator, .work-card .activator.work-card-title {
       cursor: pointer; }
-  .card a {
+  .card a, .work-card a {
     color: #ffab40;
     margin-right: 20px;
     -webkit-transition: color .3s ease;
     transition: color .3s ease;
     text-transform: uppercase; }
-    .card a:hover {
+    .card a:hover, .work-card a:hover {
       color: #ffd8a6; }
-  .card.small, .card.medium, .card.large {
+  .card.small, .small.work-card, .card.medium, .medium.work-card, .card.large, .large.work-card {
     position: relative; }
-    .card.small .card-image, .card.medium .card-image, .card.large .card-image {
+    .card.small .card-image, .small.work-card .card-image, .card.small .work-card .work-card-image, .work-card .card.small .work-card-image, .small.work-card .work-card-image, .card.medium .card-image, .medium.work-card .card-image, .card.medium .work-card .work-card-image, .work-card .card.medium .work-card-image, .medium.work-card .work-card-image, .card.large .card-image, .large.work-card .card-image, .card.large .work-card .work-card-image, .work-card .card.large .work-card-image, .large.work-card .work-card-image {
       overflow: hidden; }
-    .card.small .card-content, .card.medium .card-content, .card.large .card-content {
+    .card.small .card-content, .small.work-card .card-content, .card.medium .card-content, .medium.work-card .card-content, .card.large .card-content, .large.work-card .card-content {
       overflow: hidden; }
-    .card.small .card-action, .card.medium .card-action, .card.large .card-action {
+    .card.small .card-action, .small.work-card .card-action, .card.medium .card-action, .medium.work-card .card-action, .card.large .card-action, .large.work-card .card-action {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0; }
-  .card.small {
+  .card.small, .small.work-card {
     height: 300px; }
-    .card.small .card-image {
+    .card.small .card-image, .small.work-card .card-image, .card.small .work-card .work-card-image, .work-card .card.small .work-card-image, .small.work-card .work-card-image {
       height: 150px; }
-    .card.small .card-content {
+    .card.small .card-content, .small.work-card .card-content {
       height: 150px; }
-  .card.medium {
+  .card.medium, .medium.work-card {
     height: 400px; }
-    .card.medium .card-image {
+    .card.medium .card-image, .medium.work-card .card-image, .card.medium .work-card .work-card-image, .work-card .card.medium .work-card-image, .medium.work-card .work-card-image {
       height: 250px; }
-    .card.medium .card-content {
+    .card.medium .card-content, .medium.work-card .card-content {
       height: 150px; }
-  .card.large {
+  .card.large, .large.work-card {
     height: 500px; }
-    .card.large .card-image {
+    .card.large .card-image, .large.work-card .card-image, .card.large .work-card .work-card-image, .work-card .card.large .work-card-image, .large.work-card .work-card-image {
       height: 330px; }
-    .card.large .card-content {
+    .card.large .card-content, .large.work-card .card-content {
       height: 170px; }
-  .card .card-image {
+  .card .card-image, .work-card .card-image, .work-card .work-card-image {
     position: relative; }
-    .card .card-image img {
+    .card .card-image img, .work-card .card-image img, .work-card .work-card-image img {
       border-radius: 2px 2px 0 0;
       background-clip: padding-box;
       position: relative;
@@ -5354,25 +5354,25 @@ small {
       top: 0;
       bottom: 0;
       width: 100%; }
-    .card .card-image .card-title {
+    .card .card-image .card-title, .work-card .card-image .card-title, .work-card .work-card-image .card-title, .card .card-image .work-card .work-card-title, .work-card .card-image .work-card-title, .work-card .work-card-image .work-card-title {
       position: absolute;
       bottom: 0;
       left: 0;
       padding: 20px; }
-  .card .card-content {
+  .card .card-content, .work-card .card-content {
     padding: 20px;
     border-radius: 0 0 2px 2px;
     background-clip: padding-box;
     box-sizing: border-box; }
-    .card .card-content p {
+    .card .card-content p, .work-card .card-content p {
       margin: 0;
       color: inherit; }
-    .card .card-content .card-title {
+    .card .card-content .card-title, .work-card .card-content .card-title, .card .card-content .work-card .work-card-title, .work-card .card-content .work-card-title {
       line-height: 48px; }
-  .card .card-action {
+  .card .card-action, .work-card .card-action {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 20px; }
-  .card .card-reveal {
+  .card .card-reveal, .work-card .card-reveal {
     padding: 20px;
     position: absolute;
     background-color: #FFF;
@@ -5382,7 +5382,7 @@ small {
     height: 100%;
     z-index: 1;
     box-sizing: border-box; }
-    .card .card-reveal .card-title {
+    .card .card-reveal .card-title, .work-card .card-reveal .card-title, .card .card-reveal .work-card .work-card-title, .work-card .card-reveal .work-card-title {
       cursor: pointer;
       display: block; }
 
@@ -7724,6 +7724,49 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
+
+.hide {
+  display: none; }
+
+.work-card {
+  margin: 0; }
+  .work-card .work-card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px; }
+  .work-card .work-card-image {
+    position: static;
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1); }
+  .work-card .work-card-action {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 40px;
+    max-height: 40px; }
+  .work-card .work-card-overlay {
+    position: absolute;
+    margin: auto;
+    top: -25%;
+    left: -25%;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    -webkit-transform: scale3d(1.5, 1.5, 1.5);
+            transform: scale3d(1.5, 1.5, 1.5);
+    -webkit-transition: .28s ease;
+    transition: .28s ease; }
+    .work-card .work-card-overlay.off {
+      -webkit-transform: scale3d(0, 0, 0);
+              transform: scale3d(0, 0, 0); }
+  .work-card .work-card-info {
+    position: absolute;
+    top: 0;
+    left: 0; }
 
 .block-grid.collapsed > .tile {
   padding: 0; }

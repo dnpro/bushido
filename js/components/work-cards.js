@@ -8,10 +8,10 @@
         $document = $(document),
             $window = $(window),
             $body = $("body"),
-            $card = $(".card")
-            $thumb = $card.find(".card-thumb"),
-            $overlay = $card.find(".card-overlay"),
-            $info = $card.find(".card-info"),
+            $card = $(".work-card")
+            $thumb = $card.find(".work-card-image"),
+            $overlay = $card.find(".work-card-overlay"),
+            $info = $card.find(".work-card-info"),
             overlay = false,
             animating = false;
 
@@ -21,10 +21,9 @@
         $window.on("load", function () {
             $card.each(function () {
                 var colorThief = new ColorThief();
-                var dominantColor = colorThief.getColor($(this).find(".card-thumb > img")[0]);
+                var dominantColor = colorThief.getColor($(this).find(".work-card-image > img")[0]);
                 var newColor = "rgb(" + dominantColor[0] + "," + dominantColor[1] + "," + dominantColor[2] + ")";
-                console.log(newColor);
-                $(this).find(".card-overlay").css({
+                $(this).find(".work-card-overlay").css({
                     "background-color": newColor
                 });
                 $(this).css({
@@ -46,9 +45,9 @@
     function showCardOverlay() {
         //console.log(animating);
         var $this = $(this),
-            $overlay = $this.find(".card-overlay"),
-            $info = $this.find(".card-info"),
-            $thumb = $this.find(".card-thumb");
+            $overlay = $this.find(".work-card-overlay"),
+            $info = $this.find(".work-card-info"),
+            $thumb = $this.find(".work-card-image");
 
         if (!$this.hasClass("active")) {
             $overlay.toggleClass("on off");
